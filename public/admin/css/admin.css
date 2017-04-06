@@ -1,0 +1,14 @@
+body,
+ul,
+li {
+    margin: 0;
+    padding: 0
+}
+
+body,
+html {
+    height: 100%
+}
+.common-form{border:1px solid #ccc;width:800px;margin:20px auto;padding:20px}
+.common-form label{font-weight:normal}
+.note-editable{min-height:500px}

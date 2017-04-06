@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <%- include('include/header.html') %>
+</head>
+
+<body>
+
+    <div class="sz_topNav">
+        <div class="clearfix sz_topNav_content">
+            <a href="#" class="jyw_login">登录</a>
+            <a href="#" class="jyw_register">注册</a>
+            <a href="#" class="jyw_homePage">设为首页</a>
+            <a href="#" class="jyw_addFavorites">加入收藏</a>
+            <a href="#" class="jyw_backHome">返回首页</a>
+        </div>
+    </div>
+    <!--END sz_topNav-->
+
+    <div class="sz_header">
+        <div class="clearfix jyw_logo_box">
+            <div class="logo_min">
+                <a href="#" title="深圳社区家园网" target=""></a>
+            </div>
+            <div class="jyw_special_title">
+                <h2>汽车服务</h2>
+            </div>
+        </div>
+        <div class="car_insurance_nav">
+            <% //头部模板 %>
+                <%- include('include/nav.html') %>
+        </div>
+    </div>
+    <!--END sz_header-->
+
+    <div class="car_mainBody">
+
+        <div class="car_main">
+            <div class="current_position"><span class="title">您的足迹：</span><a href="#">首页</a> > <a href="#">新闻资讯</a></div>
+            <!--END current_position-->
+            <div class="clearfix subPageMain car_newsMain">
+                <div class="l_w730 more_newsList">
+                    <div class="subPage_title01">
+                        <h2>
+                            <%= newsTypeName %>
+                        </h2>
+                    </div>
+                    <div class="subPage_list_bd">
+                        <ul class="car_list_a">
+                            <% //新闻更多新闻列表 %>
+                                <% newsList.forEach(function(newsObj){ %>
+                                    <% //将ISODate日期格式转换为本地日期格式%>
+                                        <% var localDate = new Date(newsObj.create_time.getTime()).toLocaleString();
+                                            var reg = localDate.slice(5,-3);                                            
+                                         %>
+                                            <li>
+                                                <a href="newsDetail?id=<%=newsObj.create_time.getTime() %>">
+                                                    <%= newsObj.news_title %>
+                                                </a><span class="list_date_a"><%= reg %></span>
+                                            </li>
+                                            <% }) %>
+
+                        </ul>
+
+
+                    </div>
+                    <!--<div class="paginnation"><a href="<%=pathAndQuery %>&pagesize=pagefirst">上一页</a><a href="<%=pathAndQuery %>&pagesize=1">1</a><a href="<%=pathAndQuery %>&pagesize=2">2</a>
+                        <a href="<%=pathAndQuery %>&pagesize=1&pagesize=pagelast">下一页</a>
+                    </div>-->
+                    <div class="paginnation" id='paginnation'>
+                        <a href="<%=pathAndQuery %>&pagesize=1">首页</a>
+
+                        <a href="<%=pathAndQuery %>&pagesize=<%=pagination.currentPage-1>=2?pagination.currentPage-1:1 %>">上一页</a>
+                        <% for(var i =1;i<= pagination.pageCount;i++){ %>
+                            <a class='paginnation-num' href="<%=pathAndQuery%>&pagesize=<%=i%>">
+                                <%=i%>
+                            </a>
+                            <% }%>
+                                <a href="<%=pathAndQuery %>&pagesize=<%=pagination.currentPage<pagination.pageCount?parseInt(pagination.currentPage)+1:pagination.pageCount %>">下一页</a>
+                                <a href="<%=pathAndQuery %>&pagesize=<%=pagination.pageCount%>">尾页</a>
+                    </div>
+                </div>
+                <div class="r_w240">
+                    <div class="query_traffic_violations">
+                        <a href="#" title="交通违章查询"><img src="img/query_traffic_violations.jpg" alt="交通违章查询" /></a>
+                    </div>
+                    <div class="safety_common_sense">
+                        <div class="car_hd_b">
+                            <a class="more_a" href="#">More+</a>
+                            <h2>安全常识</h2>
+                        </div>
+                        <div class="bd">
+                            <ul class="car_list_a">
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万</a></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a></li>
+                            </ul>
+
+                        </div>
+                    </div>
+                    <div class="use_the_vehicle_guide">
+                        <div class="car_hd_b">
+                            <a class="more_a" href="#">More+</a>
+                            <h2>用车指南</h2>
+                        </div>
+                        <div class="bd">
+                            <ul class="car_list_a">
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万</a></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--END subPageMain-->
+
+        </div>
+        <!--END content-->
+
+        <% //尾部模板 %>
+            <%- include('include/footer.html') %>
+                <!--END footer-->
+
+    </div>
+    <!--END mainBody-->
+
+
+</body>
+
+</html>

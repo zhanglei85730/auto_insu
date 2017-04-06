@@ -1,0 +1,13 @@
+<% if(newsAssortment.length!=0){ %>
+    <% newsAssortment.forEach(function(newsObj){ %>
+        <% //将ISODate日期格式转换为本地日期格式%>
+            <% var localDate = new Date(newsObj.create_time.getTime()).toLocaleString();
+                                            var reg = localDate.slice(5,-8);                                            
+                                         %>
+                <li>
+                    <a href="newsDetail?id=<%=newsObj.create_time.getTime() %>">
+                        <%= newsObj.news_title %>
+                    </a><span class="list_date_a"><%= reg %></span >
+       </li>
+     <% }) %>
+ <% } %>

@@ -1,0 +1,45 @@
+<div class="car_hd_a">
+    <h2>
+        <%- title%>
+    </h2>
+    <a href="newsMore?newsType=<%=type%>" class="more_a">More+</a>
+</div>
+<% let flag=false %>
+    <% newsAssortment.forEach(function(obj,key){ %>
+        <% if( !flag && obj.news_pic !=''){%>
+            <% newsAssortment.splice(key,1);flag=true %>
+                <div class="clearfix car_bd_top">
+                    <div class="bd_top_img">
+                        <img src="upload/<%=obj.news_pic%>" alt="业界动态" />
+                    </div>
+                    <div class="bd_top_news">
+                        <h3>
+                            <a href="newsDetail?id=<%=obj.create_time.getTime() %>" title="">
+                                <%= obj.news_title %>
+                            </a>
+                        </h3>
+                        <p>
+                            <%//去掉新闻内容的标签%>
+                                <%- obj.news_content.replace(/<[^>]+>/g,"")%>
+                        </p>
+                    </div>
+                </div>
+
+                <%}%>
+                    <%})%>
+
+                        <%//输出底部列表%>
+                            <div class="car_bd_bottom">
+                                <ul class="car_list_a">
+                                    <% newsAssortment.forEach(function(obj){ %>
+                                        <% var localDate = new Date(obj.create_time.getTime()).toLocaleString();
+                                            var reg = localDate.slice(5,-8);                                            
+                                         %>
+                                            <li>
+                                                <a href="newsDetail?id=<%=obj.create_time.getTime() %>">
+                                                    <%=obj.news_title%>
+                                                </a><span class="list_date_a"><%=reg%></span></li>
+
+                                            <%})%>
+                                </ul>
+                            </div>

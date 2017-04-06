@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <%- include('include/header.html') %>
+        <title>首页</title>
+</head>
+
+<body>
+
+    <div class="sz_topNav">
+        <div class="clearfix sz_topNav_content">
+            <a href="#" class="jyw_login">登录1</a>
+            <a href="#" class="jyw_register">注册</a>
+            <a href="#" class="jyw_homePage">设为首页</a>
+            <a href="#" class="jyw_addFavorites">加入收藏</a>
+            <a href="#" class="jyw_backHome">返回首页</a>
+        </div>
+    </div>
+    <!--END sz_topNav-->
+
+    <div class="sz_header">
+        <div class="clearfix jyw_logo_box">
+            <div class="logo_min">
+                <a href="#" title="深圳社区家园网" target=""></a>
+            </div>
+            <div class="jyw_special_title">
+                <h2>汽车服务</h2>
+            </div>
+        </div>
+        <div class="car_insurance_nav">
+            <% //头部模板 %>
+                <%- include('include/nav.html') %>
+        </div>
+    </div>
+    <!--END sz_header-->
+
+    <div class="car_mainBody">
+
+        <div class="car_main">
+            <div class="clearfix car_first_floor">
+                <div class="l_w340">
+                    <div class="car_slide">
+                        <div class="car_slide_box">
+                            <div class="car_slide_images">
+                                <ul>
+                                    <li class="current">
+                                        <a href="#" title="图片信息"><img src="img/car_slide_images01.jpg" alt="图片信息" /></a>
+                                    </li>
+                                    <li>
+                                        <a href="#" title="图片信息"><img src="img/car_slide_images01.jpg" alt="图片信息" /></a>
+                                    </li>
+                                    <li>
+                                        <a href="#" title="图片信息"><img src="img/car_slide_images01.jpg" alt="图片信息" /></a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!--幻灯片图片DIV-->
+                            <div class="car_slide_images_title">
+                                <h2 class="current">国产新508将16日公布预售 2015年初上市</h2>
+                                <h2>图片标题2222222图片标题</h2>
+                                <h2>图片标题3333333图片标题</h2>
+                                <div class="translucence"></div>
+                            </div>
+                            <!--幻灯片图片标题DIV-->
+                            <div class="car_slide_number">
+                                <ul class="clearfix">
+                                    <li class="current">1</li>
+                                    <li>2</li>
+                                    <li>3</li>
+                                </ul>
+                            </div>
+                            <!--幻灯片图片序号DIV-->
+                        </div>
+                    </div>
+                    <!-- END car_slide -->
+
+                    <div class="industry_news">
+                        <%//业界动态%>
+                            <%- include('include/newsList02.html',{newsAssortment:newsList.yjdt,title:'业界<em>动态</em>',type:'yjdt'}) %>
+                    </div>
+                </div>
+                <div class="l_w370">
+                    <div class="focus_today">
+                        <div class="clearfix hd"><a class="more_a" href="newsMore?newsType=focus">More+</a></div>
+                        <div class="bd">
+                            <ul class="car_list_a">
+                                <%//新闻聚焦%>
+                                    <%- include('include/newsList01.html',{newsAssortment:newsList.focus,title:'新闻聚焦',type:'focus'}) %>
+
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="cjg_news">
+                        <!--<div class="car_hd_a">
+                            <h2>车驾管<em>动态</em></h2>
+                            <a href="#" class="more_a">More+</a>
+                        </div>
+                        <div class="clearfix car_bd_top">
+                            <div class="bd_top_img"><img src="img/bd_top_img02.jpg" alt="车驾管动态" /></div>
+                            <div class="bd_top_news">
+                                <h3><a href="#" title="几年前，奇瑞还处于“多生孩子打群架”">几年前，奇瑞还处于“多生孩子打群架”</a></h3>
+                                <p>几年前，奇瑞还处于“多生孩子打群架”的策略之下，旗下的子品牌可谓不胜枚举。在经历了战略的失败后</p>
+                            </div>
+                        </div>
+                        <div class="car_bd_bottom">
+                            <ul class="car_list_a">
+                                <li><a href="#" title="沪港通今日启动">沪港通今日启动 将为上海带来数万亿美元新资金</a><span class="list_date_a">11-07</span></li>
+                                                        <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a><span class="list_date_a">11-07</span></li>
+                                                        <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a><span class="list_date_a">11-07</span></li>
+                                                        <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a><span class="list_date_a">11-07</span></li>
+                                                        <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a><span class="list_date_a">11-07</span></li>
+                                                        <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a><span class="list_date_a">11-07</span></li>
+                                                        <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a><span class="list_date_a">11-07</span></li>
+                                                        <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a><span class="list_date_a">11-07</span></li>
+                                                        <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a><span class="list_date_a">11-07</span></li>
+                            </ul>
+                        </div>-->
+                        <% //车驾管动态%>
+                            <%- include('include/newsList02.html',{newsAssortment:newsList.cjgdt,title:'车驾管<em>动态</em>',type:'cjgdt'}) %>
+                    </div>
+
+                </div>
+                <div class="r_w240">
+                    <div class="insure_knowledge">
+                        <% //投保知识 %>
+                            <%- include('include/newslist03.html',{newsAssortment:newsList.tbzs,title:'投保知识',type:'tbzs'}) %>
+                    </div>
+                    <div class="query_traffic_violations">
+                        <a href="#" title="交通违章查询"><img src="img/query_traffic_violations.jpg" alt="交通违章查询" /></a>
+                    </div>
+                    <div class="safety_common_sense">
+                        <% //安全常识 %>
+                            <%- include('include/newsList03.html',{newsAssortment:newsList.aqcs,title:'安全常识',type:'aqcs'}) %>
+                    </div>
+                </div>
+            </div>
+            <!-- END car_first_floor -->
+            <div class="car_second_floor">
+                <div class="DMV">
+                    <ul class="clearfix DMV_list">
+                        <li>
+                            <a href="#" class="DMV_img_link" title="网上业务办理"><img src="img/DMV_01.png" alt="网上业务办理" /></a>
+                            <p><a href="#">网上业务办理</a></p>
+                        </li>
+                        <li>
+                            <a href="#" class="DMV_img_link" title="网上预约服务"><img src="img/DMV_02.png" alt="网上预约服务" /></a>
+                            <p><a href="#">网上预约服务</a></p>
+                        </li>
+                        <li>
+                            <a href="#" class="DMV_img_link" title="网上办理服务"><img src="img/DMV_03.png" alt="网上办理服务" /></a>
+                            <p><a href="#">网上办理服务</a></p>
+                        </li>
+                        <li>
+                            <a href="#" class="DMV_img_link" title="用车指导"><img src="img/DMV_04.png" alt="用车指导" /></a>
+                            <p><a href="#">用车指导</a></p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- END car_second_floor -->
+            <div class="clearfix car_thirdly_floor">
+                <div class="l_w340">
+                    <div class="policy_elucidation">
+                        <!--<div class="car_hd_a">
+                            <h2>政策<em>解读</em></h2>
+                            <a href="#" class="more_a">More+</a>
+                        </div>
+                        <div class="clearfix car_bd_top">
+                            <div class="bd_top_img"><img src="img/bd_top_img03.jpg" alt="政策解读" /></div>
+                            <div class="bd_top_news">
+                                <h3><a href="#" title="">几年前，奇瑞还处于“多生孩子打群架”</a></h3>
+                                <p>几年前，奇瑞还处于“多生孩子打群架”的策略之下，旗下的子品牌可谓不胜枚举。在经历了战略的失败后</p>
+                            </div>
+                        </div>
+                        <div class="car_bd_bottom">
+                            <ul class="car_list_a">
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a><span class="list_date_a">11-07</span></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a><span class="list_date_a">11-07</span></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a><span class="list_date_a">11-07</span></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a><span class="list_date_a">11-07</span></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a><span class="list_date_a">11-07</span></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a><span class="list_date_a">11-07</span></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a><span class="list_date_a">11-07</span></li>
+                            </ul>
+                        </div>-->
+                        <%//政策解读%>
+                            <%- include('include/newsList02.html',{newsAssortment:newsList.zcjd,title:'政策<em>解读</em>',type:'zcjd'}) %>
+                    </div>
+                    <div class="motor_dom">
+                        <!--<div class="car_hd_a">
+                            <h2>车界<em>内幕</em></h2>
+                            <a href="#" class="more_a">More+</a>
+                        </div>
+                        <div class="clearfix car_bd_top">
+                            <div class="bd_top_img"><img src="img/bd_top_img05.jpg" alt="车界内幕" /></div>
+                            <div class="bd_top_news">
+                                <h3><a href="#" title="">几年前，奇瑞还处于“多生孩子打群架”</a></h3>
+                                <p>几年前，奇瑞还处于“多生孩子打群架”的策略之下，旗下的子品牌可谓不胜枚举。在经历了战略的失败后</p>
+                            </div>
+                        </div>
+                        <div class="car_bd_bottom">
+                            <ul class="car_list_a">
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a><span class="list_date_a">11-07</span></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a><span class="list_date_a">11-07</span></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a><span class="list_date_a">11-07</span></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a><span class="list_date_a">11-07</span></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a><span class="list_date_a">11-07</span></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a><span class="list_date_a">11-07</span></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a><span class="list_date_a">11-07</span></li>
+                            </ul>
+                        </div>-->
+                        <%//车界内幕%>
+                            <%- include('include/newsList02.html',{newsAssortment:newsList.cjnm,title:'车界<em>内幕</em>',type:'cjnm'}) %>
+                    </div>
+                </div>
+                <div class="l_w370">
+                    <div class="law_guide">
+                        <!--<div class="car_hd_a">
+                            <h2>办事<em>指南</em></h2>
+                            <a href="#" class="more_a">More+</a>
+                        </div>
+                        <div class="clearfix car_bd_top">
+                            <div class="bd_top_img"><img src="img/bd_top_img04.jpg" alt="办事指南" /></div>
+                            <div class="bd_top_news">
+                                <h3><a href="#" title="">几年前，奇瑞还处于“多生孩子打群架”</a></h3>
+                                <p>几年前，奇瑞还处于“多生孩子打群架”的策略之下，旗下的子品牌可谓不胜枚举。在经历了战略的失败后</p>
+                            </div>
+                        </div>
+                        <div class="car_bd_bottom">
+                            <ul class="car_list_a">
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a><span class="list_date_a">11-07</span></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a><span class="list_date_a">11-07</span></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a><span class="list_date_a">11-07</span></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a><span class="list_date_a">11-07</span></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a><span class="list_date_a">11-07</span></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a><span class="list_date_a">11-07</span></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a><span class="list_date_a">11-07</span></li>
+                            </ul>
+                        </div>-->
+                        <%//办事指南%>
+                            <%- include('include/newsList02.html',{newsAssortment:newsList.bszn,title:'办事<em>指南</em>',type:'bszn'}) %>
+                    </div>
+                    <div class="cost_analysis">
+                        <!--<div class="car_hd_a">
+                            <h2>费用<em>解析</em></h2>
+                            <a href="#" class="more_a">More+</a>
+                        </div>
+                        <div class="clearfix car_bd_top">
+                            <div class="bd_top_img"><img src="img/bd_top_img06.jpg" alt="费用解析" /></div>
+                            <div class="bd_top_news">
+                                <h3><a href="#" title="">几年前，奇瑞还处于“多生孩子打群架”</a></h3>
+                                <p>几年前，奇瑞还处于“多生孩子打群架”的策略之下，旗下的子品牌可谓不胜枚举。在经历了战略的失败后</p>
+                            </div>
+                        </div>
+                        <div class="car_bd_bottom">
+                            <ul class="car_list_a">
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a><span class="list_date_a">11-07</span></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a><span class="list_date_a">11-07</span></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a><span class="list_date_a">11-07</span></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a><span class="list_date_a">11-07</span></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a><span class="list_date_a">11-07</span></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a><span class="list_date_a">11-07</span></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a><span class="list_date_a">11-07</span></li>
+                            </ul>
+                        </div>-->
+                        <%//费用解析%>
+                            <%- include('include/newsList02.html',{newsAssortment:newsList.fyjx,title:'费用<em>解析</em>',type:'fyjx'}) %>
+                    </div>
+                </div>
+                <div class="r_w240">
+                    <div class="use_the_vehicle_guide">
+                        <!--<div class="car_hd_b">
+                            <a class="more_a" href="#">More+</a>
+                            <h2 id='test'>用车指南</h2>
+                        </div>
+                        <div class="bd">
+                            <ul class="car_list_a">
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万</a></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a></li>
+                            </ul>
+                        </div>-->
+
+                        <% //用车指导 %>
+                            <%- include('include/newsList03.html',{newsAssortment:newsList.yczd,title:'用车指导',type:'yczd'}) %>
+                    </div>
+                    <div class="car_img_links">
+                        <a href="#" title="机动车业务"><img src="img/img_links01.jpg" alt="机动车业务" /></a>
+                        <a href="#" title="驾驶证业务"><img src="img/img_links02.jpg" alt="驾驶证业务" /></a>
+                        <a href="#" title="考试科业务"><img src="img/img_links03.jpg" alt="考试科业务" /></a>
+                    </div>
+                    <div class="clearfix baoyi_code">
+                        <div class="baoyi_code_title">扫描二维码</div>
+                        <img src="img/baoyi_img.jpg" class="baoyi_code_img" />
+                        <p class="baoyi_code_intro">保易为您提供全面的保险服务，包括投保建议，保险问答，知识百科等</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--END content-->
+        <% //尾部模板 %>
+            <%- include('include/footer.html') %>
+                <!--END footer-->
+
+    </div>
+    <!--END mainBody-->
+
+
+</body>
+
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <%- include('include/header.html') %>
+        <title>
+            <%=title%>
+        </title>
+</head>
+
+<body>
+
+    <div class="sz_topNav">
+        <div class="clearfix sz_topNav_content">
+            <a href="#" class="jyw_login">登录</a>
+            <a href="#" class="jyw_register">注册</a>
+            <a href="#" class="jyw_homePage">设为首页</a>
+            <a href="#" class="jyw_addFavorites">加入收藏</a>
+            <a href="#" class="jyw_backHome">返回首页</a>
+        </div>
+    </div>
+    <!--END sz_topNav-->
+
+    <div class="sz_header">
+        <div class="clearfix jyw_logo_box">
+            <div class="logo_min">
+                <a href="#" title="深圳社区家园网" target=""></a>
+            </div>
+            <div class="jyw_special_title">
+                <h2>汽车服务</h2>
+            </div>
+        </div>
+        <div class="car_insurance_nav">
+            <ul class="clearfix car_insurance_navList">
+                <% //头部模板 %>
+                    <%- include('include/nav.html') %>
+            </ul>
+        </div>
+    </div>
+    <!--END sz_header-->
+
+    <div class="car_mainBody">
+
+        <div class="car_main">
+            <div class="current_position"><span class="title">您的足迹：</span><a href="#">首页</a> > <a href="#">新闻资讯</a></div>
+            <!--END current_position-->
+            <div class="clearfix subPageMain car_newsMain">
+                <div class="l_w730">
+                    <div class="focus_today">
+                        <div class="clearfix hd"><a class="more_a" href="newsMore?newsType=focus">More+</a></div>
+                        <div class="bd">
+                            <ul class="car_list_a">
+                                <!--<li><a href="#" title="沪港通今日启动">沪港通今日启动 将为上海带来数万亿美元新资金</a><span class="list_date_a">11-07</span></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a><span class="list_date_a">11-07</span></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金资金沪港通今日启动 将为上海带来数万亿美元新资金资金</a><span class="list_date_a">11-07</span></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a><span class="list_date_a">11-07</span></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a><span class="list_date_a">11-07</span></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a><span class="list_date_a">11-07</span></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a><span class="list_date_a">11-07</span></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a><span class="list_date_a">11-07</span></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a><span class="list_date_a">11-07</span></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a><span class="list_date_a">11-07</span></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a><span class="list_date_a">11-07</span></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a><span class="list_date_a">11-07</span></li>-->
+                                <%//今日聚焦%>
+                                    <%- include('include/newsList01.html',{newsAssortment:newsList.focus,title:'新闻聚焦',type:'focus'}) %>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="industry_news">
+                        <div class="car_hd_a">
+                            <h2>业界<em>动态</em></h2>
+                            <a href="newsMore?newsType=yjdt" class="more_a">More+</a>
+                        </div>
+                        <div class="car_bd_bottom">
+                            <ul class="car_list_a">
+                                <!--<li><a href="#" title="沪港通今日启动">沪港通今日启动 将为上海带来数万亿美元新资金</a><span class="list_date_a">11-07</span></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金沪港通今日启动 将为上海带来数万亿美元新资金沪港通今日启动 将为上海带来数万亿美元新资金</a><span class="list_date_a">11-07</span></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a><span class="list_date_a">11-07</span></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a><span class="list_date_a">11-07</span></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a><span class="list_date_a">11-07</span></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a><span class="list_date_a">11-07</span></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a><span class="list_date_a">11-07</span></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a><span class="list_date_a">11-07</span></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a><span class="list_date_a">11-07</span></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a><span class="list_date_a">11-07</span></li>-->
+                                <%//业界动态%>
+                                    <%- include('include/newsList01.html',{newsAssortment:newsList.yjdt,title:'业界动态',type:'yjdt'}) %>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="r_w240">
+                    <div class="query_traffic_violations">
+                        <a href="#" title="交通违章查询"><img src="img/query_traffic_violations.jpg" alt="交通违章查询" /></a>
+                    </div>
+                    <div class="safety_common_sense">
+                        <div class="car_hd_b">
+                            <a class="more_a" href="#">More+</a>
+                            <h2>安全常识</h2>
+                        </div>
+                        <div class="bd">
+                            <ul class="car_list_a">
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万</a></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="use_the_vehicle_guide">
+                        <div class="car_hd_b">
+                            <a class="more_a" href="#">More+</a>
+                            <h2>用车指南</h2>
+                        </div>
+                        <div class="bd">
+                            <ul class="car_list_a">
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万</a></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--END subPageMain-->
+
+        </div>
+        <!--END content-->
+
+        <div class="car_footer">
+            <p><a href="#">深圳社区家园网</a> 版权所有 Copyright www.szshequ.org All Right Reserved.</p>
+            <p>主办单位：<a href="#" style="margin-right:1em;">深圳市社工委</a><a href="#" style="margin-right:1.5em;">深圳市民政局</a>技术支持：<a href="#" style="margin-right:1em;">中国电信深圳分公司</a><a href="#">深圳市永兴元科技有限公司</a></p>
+            <p>互联网违法和不良信息举报中心 备案/许可证标号：[粤ICP备12021470号-1]</p>
+        </div>
+        <!--END footer-->
+
+    </div>
+    <!--END mainBody-->
+
+
+</body>
+
+</html>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <%- include('include/header.html') %>
+        <title>
+            <%=title%>
+        </title>
+</head>
+
+<body>
+    <div class="sz_topNav">
+        <div class="clearfix sz_topNav_content">
+            <a href="#" class="jyw_login">登录</a>
+            <a href="#" class="jyw_register">注册</a>
+            <a href="#" class="jyw_homePage">设为首页</a>
+            <a href="#" class="jyw_addFavorites">加入收藏</a>
+            <a href="#" class="jyw_backHome">返回首页</a>
+        </div>
+    </div>
+    <!--END sz_topNav-->
+
+    <div class="sz_header">
+        <div class="clearfix jyw_logo_box">
+            <div class="logo_min">
+                <a href="#" title="深圳社区家园网" target=""></a>
+            </div>
+            <div class="jyw_special_title">
+                <h2>汽车服务</h2>
+            </div>
+        </div>
+        <div class="car_insurance_nav">
+            <% //头部模板 %>
+                <%- include('include/nav.html') %>
+        </div>
+    </div>
+    <!--END sz_header-->
+
+    <div class="car_mainBody">
+
+        <div class="car_main">
+            <div class="current_position"><span class="title">您的足迹：</span><a href="#">首页</a> > <a href="#">新闻资讯</a></div>
+            <!--END current_position-->
+            <div class="clearfix subPageMain car_newsMain">
+                <div class="l_w730 car_article">
+                    <div class="article_content">
+                        <!--<div class="article_hd">
+                            <h2 class="article_title">【渔一社区服务中心】十月活动，精彩预告</h2>
+                            <p class="article_info"><span>发布时间：</span><span class="mr20">2014-10-15</span><span>发布者：</span><span class="mr20">渔一社区</span><span>信息来源：</span><span>原创</span></p>
+                        </div>
+                        <div class="article_bd">
+                            <p><strong>（通讯员：麦倩梅）</strong>在白石洲西社区里有这样一群老人——他们不是常年居住在这里，而是随着季节气候变化往返于深圳和老家，我们把这样一群老人称为“候鸟式老人”。趁着老年朋友过完“暑假”返深之际，9月17日，白石洲西社区服务中心开展了“齐聚社区，共话服务”中老年茶话会活动。</p>
+                            <p>在祥和的气氛中，中老年朋友一起回顾着自中心设立以来开展的各项老年服务活动。大家兴趣盎然地观看视频并被记录的精彩画面勾起了往昔美好的回忆，不时发出阵阵欢笑声——拉近了彼此间的距离，结交了好朋友，更收获了好心情和好经验。对于今后的服务活动，大家也分享了各自的想法，一位阿姨倡议：“希望一起外出游玩；把自己身边的朋友介绍到服务中心，扩大社交圈子；大伙儿对交谊舞活动也感兴趣。”</p>
+                            <p>（通讯员：麦倩梅）在白石洲西社区里有这样一群老人——他们不是常年居住在这里，而是随着季节气候变化往返于深圳和老家，我们把这样一群老人称为“候鸟式老人”。趁着老年朋友过完“暑假”返深之际，9月17日，白石洲西社区服务中心开展了“齐聚社区，共话服务”中老年茶话会活动。</p>
+                            <p>在祥和的气氛中，中老年朋友一起回顾着自中心设立以来开展的各项老年服务活动。大家兴趣盎然地观看视频并被记录的精彩画面勾起了往昔美好的回忆，不时发出阵阵欢笑声——拉近了彼此间的距离，结交了好朋友，更收获了好心情和好经验。对于今后的服务活动，大家也分享了各自的想法，一位阿姨倡议：“希望一起外出游玩；把自己身边的朋友介绍到服务中心，扩大社交圈子；大伙儿对交谊舞活动也感兴趣。”</p>
+                        </div>-->
+                        <div class="article_hd">
+                            <h2 class="article_title">
+                                <%= newsEntry.news_title %>
+                                    <% //将ISODate日期格式转换为本地日期格式%>
+                                        <% var localDate = new Date(newsEntry.create_time.getTime()).toLocaleString();
+                                            var reg = localDate.slice(5,-3);                                            
+                                %>
+                            </h2>
+                            <p class="article_info"><span>发布时间：</span><span class="mr20"><%= reg %></span></p>
+                        </div>
+                        <div class="article_bd">
+                            <%- newsEntry.news_content %>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="r_w240">
+                    <div class="query_traffic_violations">
+                        <a href="#" title="交通违章查询"><img src="img/query_traffic_violations.jpg" alt="交通违章查询" /></a>
+                    </div>
+                    <div class="safety_common_sense">
+                        <div class="car_hd_b">
+                            <a class="more_a" href="#">More+</a>
+                            <h2>安全常识</h2>
+                        </div>
+                        <div class="bd">
+                            <ul class="car_list_a">
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万</a></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="use_the_vehicle_guide">
+                        <div class="car_hd_b">
+                            <a class="more_a" href="#">More+</a>
+                            <h2>用车指南</h2>
+                        </div>
+                        <div class="bd">
+                            <ul class="car_list_a">
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万</a></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--END subPageMain-->
+
+        </div>
+        <!--END content-->
+
+        <% //尾部模板 %>
+            <%- include('include/footer.html') %>
+                <!--END footer-->
+
+    </div>
+    <!--END mainBody-->
+
+
+</body>
+
+</html>

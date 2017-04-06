@@ -1,0 +1,19 @@
+<div class="car_hd_b">
+    <a class="more_a" href="newsMore?newsType=<%=type%>">More+</a>
+    <h2>
+        <%=title%>
+    </h2>
+</div>
+<div class="bd">
+    <ul class="car_list_a">
+        <% if(newsAssortment.length!=0){ %>
+            <% newsAssortment.forEach(function(newsObj){ %>
+                <li>
+                    <a href="newsDetail?id=<%=newsObj.create_time.getTime() %>">
+                        <%= newsObj.news_title %>
+                    </a>
+                </li>
+                <% }) %>
+                    <% } %>
+    </ul>
+</div>
