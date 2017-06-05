@@ -65,11 +65,19 @@ router.get('/', function(req, res, next) {
             newsType = 'type10';
             break;
     };
+    let newsList = "",
+        newsObj = {};
     News.count({ news_type: newsType }).then(function(docs) {
         var page = pagination(docs, 16, currentPage);
-        console.log(page.pageCount)
         findNewsMore(newsType, page.perPageSize, page.currentItem).then(function(docs) {
-            res.render('newsMore', { title: '新闻更多', newsList: docs, newsTypeName: newsTypeName, pathAndQuery: pathAndQuery, pagination: page })
+            newsList = docs;
+            return findNews('type05', ['news_title', 'create_time'], 10);
+        }).then(function(docs) {
+            newsObj.aqcs = docs;
+            return findNews('type08', ['news_title', 'create_time'], 11);
+        }).then(function(docs) {
+            newsObj.yczd = docs;
+            res.render('newsMore', { title: '新闻更多', newsList: newsList, newsRightList: newsObj, newsTypeName: newsTypeName, pathAndQuery: pathAndQuery, pagination: page })
         });
     });
 
@@ -94,5 +102,9 @@ function pagination(pageSizeTotal, perPageSize, currentPage) {
     };
 
 };
+
+function findNews(newsType, fileds, limit) {
+    return News.find({ news_type: newsType }, fileds, { limit: limit }, function(err, docs) {}).sort({ create_time: -1 });
+}
 
 module.exports = router;

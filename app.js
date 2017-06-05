@@ -8,12 +8,14 @@ var bodyParser = require('body-parser');
 var index = require('./routes/index');
 var users = require('./routes/users');
 var newsUpload = require('./routes/newsUpload');
+var productsUpload = require('./routes/productsUpload');
 var newsDetail = require('./routes/newsDetail');
 var test_upload = require('./routes/test_upload'); //测试上传数据
 var newsMore = require('./routes/newsMore'); //新闻更多
 var news = require('./routes/news'); //测试上传数据
 var guide = require('./routes/guide'); //用车向导
-var products = require('./routes/products');
+var products = require('./routes/products'); //导入产品服务模块
+var productsDetail = require('./routes/productsDetail'); //导入产品服务详情模块
 
 
 var app = express();
@@ -36,12 +38,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', index);
 app.use('/users', users);
 app.use('/admin', newsUpload);
+app.use('/productsUpload', productsUpload);
 app.use('/newsDetail', newsDetail);
 app.use('/test_upload', test_upload);
 app.use('/newsMore', newsMore);
 app.use('/news', news);
 app.use('/guide', guide);
 app.use('/products', products);
+app.use('/productsDetail', productsDetail);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

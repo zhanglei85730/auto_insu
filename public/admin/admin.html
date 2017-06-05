@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="zh">
 
 <head>
     <meta charset="utf-8">
@@ -16,10 +16,11 @@
 
 <body>
     <form class='common-form' id='newsUploadForm' enctype="multipart/form-data">
-        <p>上传栏目：<select name='newsTypeSelect'>
+        <p>上传栏目：<select name='newsTypeSelect' id='newsTypeSelect'>
             <option value="type01">今日聚焦</option><option value="type02">投保知识</option><option value="type03">业界动态</option>
             <option value="type04">车驾管动态</option><option value="type05">安全常识</option> <option value="type06">政策解读</option> <option value="type07">办事指南</option>
             <option value="type08">用车指导</option><option value="type09">车界内幕</option><option value="type10">费用解析</option>
+            <option value="type10">产品服务</option>
         </select></p>
         <p><label>输入标题：<input type="text" name='newsTitle' style="width:500px"/></label></p>
         <p>包含图片：<label><input type="radio" name="newsPic" value="yes" >&nbsp;有</label>&nbsp;&nbsp;&nbsp;<label><input type="radio" name="newsPic" value="no" checked='checked'>&nbsp;否</label></p>
@@ -36,6 +37,7 @@
     </form>
     <script>
         $(function() {
+            //上传新闻栏目
             $('#summernote').summernote();
             var newsContent = $('.note-editable').html();
             //radio控件值
@@ -84,6 +86,12 @@
 
                 });
             });
+            //上传产品服务
+            $('#newsTypeSelect').on('change', function() {
+                if ($(this).val() == 'type10') {
+                    window.location.assign('products.html')
+                }
+            })
         })
     </script>
 </body>

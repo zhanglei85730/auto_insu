@@ -86,7 +86,7 @@
                         <a href="#" title="交通违章查询"><img src="img/query_traffic_violations.jpg" alt="交通违章查询" /></a>
                     </div>
                     <div class="safety_common_sense">
-                        <div class="car_hd_b">
+                        <!--<div class="car_hd_b">
                             <a class="more_a" href="#">More+</a>
                             <h2>安全常识</h2>
                         </div>
@@ -100,13 +100,14 @@
                                 <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a></li>
                                 <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a></li>
                             </ul>
-
-                        </div>
+                        </div>-->
+                        <% //安全常识 %>
+                            <%- include('include/newsList03.html',{newsAssortment:newsRightList.aqcs,title:'安全常识',type:'aqcs'}) %>
                     </div>
                     <div class="use_the_vehicle_guide">
-                        <div class="car_hd_b">
+                        <!--<div class="car_hd_b">
                             <a class="more_a" href="#">More+</a>
-                            <h2>用车指南</h2>
+                            <h2>用车指导</h2>
                         </div>
                         <div class="bd">
                             <ul class="car_list_a">
@@ -121,7 +122,14 @@
                                 <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a></li>
                                 <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a></li>
                             </ul>
-                        </div>
+                        </div>-->
+                        <% //用车指导 %>
+                            <%- include('include/newsList03.html',{newsAssortment:newsRightList.yczd,title:'用车指导',type:'yczd'}) %>
+                    </div>
+                    <div class="clearfix baoyi_code">
+                        <div class="baoyi_code_title">扫描二维码</div>
+                        <img src="img/baoyi_img.jpg" class="baoyi_code_img" />
+                        <p class="baoyi_code_intro">保易为您提供全面的保险服务，包括投保建议，保险问答，知识百科等</p>
                     </div>
                 </div>
             </div>

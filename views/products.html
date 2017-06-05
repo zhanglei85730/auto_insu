@@ -49,7 +49,7 @@
                             <h2>车险服务</h2>
                         </div>
                         <div class="product_service_container">
-                            <div class="clearfix car_insurance_list">
+                            <!--<div class="clearfix car_insurance_list">
                                 <div class="left">
                                     <a href="#"><img src="img/car_insurance01.jpg" alt="交强险" /></a>
                                 </div>
@@ -62,49 +62,31 @@
                                     </dl>
                                     <a href="#" class="car_btn_a">查看详情</a>
                                 </div>
-                            </div>
-                            <div class="clearfix car_insurance_list">
-                                <div class="left">
-                                    <a href="#"><img src="img/car_insurance02.jpg" alt="商业险A款" /></a>
+                            </div>-->
+                            <% productsList.productServier.forEach(function(item){%>
+                                <div class="clearfix car_insurance_list">
+                                    <div class="left">
+                                        <a href="#"><img src="upload/<%= item.product_pic %>" alt="交强险" /></a>
+                                    </div>
+                                    <div class="right">
+                                        <dl class="product_intro_list">
+                                            <dt><%=item.product_title%>
+                                </dt>
+                                            <dd>适应人群：
+                                                <%= item.suitable_for %>
+                                            </dd>
+                                            <dd>保障期限：
+                                                <%= item.time_limit %>
+                                            </dd>
+                                            <dd>可购份数：
+                                                <%= item.buy_amount %>
+                                            </dd>
+                                        </dl>
+                                        <a href="#" class="car_btn_a">查看详情</a>
+                                    </div>
                                 </div>
-                                <div class="right">
-                                    <dl class="product_intro_list">
-                                        <dt>商业险A款</dt>
-                                        <dd>适应人群：保险机动车发生意外遭受人身伤亡或者财产损失的人</dd>
-                                        <dd>保障期限：1年</dd>
-                                        <dd>可购份数：1份</dd>
-                                    </dl>
-                                    <a href="#" class="car_btn_a">查看详情</a>
-                                </div>
-                            </div>
-                            <div class="clearfix car_insurance_list">
-                                <div class="left">
-                                    <a href="#"><img src="img/car_insurance03.jpg" alt="商业险B款" /></a>
-                                </div>
-                                <div class="right">
-                                    <dl class="product_intro_list">
-                                        <dt>商业险B款</dt>
-                                        <dd>适应人群：保险机动车发生意外遭受人身伤亡或者财产损失的人</dd>
-                                        <dd>保障期限：1年</dd>
-                                        <dd>可购份数：1份</dd>
-                                    </dl>
-                                    <a href="#" class="car_btn_a">查看详情</a>
-                                </div>
-                            </div>
-                            <div class="clearfix car_insurance_list">
-                                <div class="left">
-                                    <a href="#"><img src="img/car_insurance04.jpg" alt="商业险C款" /></a>
-                                </div>
-                                <div class="right">
-                                    <dl class="product_intro_list">
-                                        <dt>商业险C款</dt>
-                                        <dd>适应人群：保险机动车发生意外遭受人身伤亡或者财产损失的人</dd>
-                                        <dd>保障期限：1年</dd>
-                                        <dd>可购份数：1份</dd>
-                                    </dl>
-                                    <a href="#" class="car_btn_a">查看详情</a>
-                                </div>
-                            </div>
+                                <% }) %>
+
                         </div>
                     </div>
                     <div class="extended_insurance_service">
@@ -112,7 +94,7 @@
                             <h2>延保服务</h2>
                         </div>
                         <div class="product_service_container">
-                            <div class="clearfix car_insurance_list">
+                            <!--<div class="clearfix car_insurance_list">
                                 <div class="left">
                                     <a href="#"><img src="img/car_insurance05.jpg" alt="汽车延保" /></a>
                                 </div>
@@ -125,7 +107,32 @@
                                     </dl>
                                     <a href="#" class="car_btn_a">查看详情</a>
                                 </div>
-                            </div>
+                            </div>-->
+                            <% productsList.deferServier.forEach(function(item){%>
+                                <% if(productsList.deferServier.length==0)return%>
+                                    <div class="clearfix car_insurance_list">
+                                        <div class="left">
+                                            <a href="#"><img src="upload/<%= item.product_pic %>" alt="交强险" /></a>
+                                        </div>
+                                        <div class="right">
+                                            <dl class="product_intro_list">
+                                                <dt><%=item.product_title%>
+                                </dt>
+                                                <dd>适应人群：
+                                                    <%= item.suitable_for %>
+                                                </dd>
+                                                <dd>保障期限：
+                                                    <%= item.time_limit %>
+                                                </dd>
+                                                <dd>可购份数：
+                                                    <%= item.buy_amount %>
+                                                </dd>
+                                            </dl>
+                                            <a href="#" class="car_btn_a">查看详情</a>
+                                        </div>
+                                    </div>
+                                    <% }) %>
+
                         </div>
                     </div>
                 </div>
@@ -134,7 +141,7 @@
                         <a href="#" title="交通违章查询"><img src="img/query_traffic_violations.jpg" alt="交通违章查询" /></a>
                     </div>
                     <div class="safety_common_sense">
-                        <div class="car_hd_b">
+                        <!--<div class="car_hd_b">
                             <a class="more_a" href="#">More+</a>
                             <h2>安全常识</h2>
                         </div>
@@ -148,12 +155,14 @@
                                 <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a></li>
                                 <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a></li>
                             </ul>
-                        </div>
+                        </div>-->
+                        <% //安全常识 %>
+                            <%- include('include/newsList03.html',{newsAssortment:newsList.aqcs,title:'安全常识',type:'aqcs'}) %>
                     </div>
                     <div class="use_the_vehicle_guide">
-                        <div class="car_hd_b">
+                        <!--<div class="car_hd_b">
                             <a class="more_a" href="#">More+</a>
-                            <h2>用车指南</h2>
+                            <h2>用车指导</h2>
                         </div>
                         <div class="bd">
                             <ul class="car_list_a">
@@ -168,7 +177,9 @@
                                 <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a></li>
                                 <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a></li>
                             </ul>
-                        </div>
+                        </div>-->
+                        <% //用车指导 %>
+                            <%- include('include/newsList03.html',{newsAssortment:newsList.yczd,title:'用车指导',type:'yczd'}) %>
                     </div>
                     <div class="clearfix baoyi_code">
                         <div class="baoyi_code_title">扫描二维码</div>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="utf-8">
+    <title>无标题文档</title>
+    <!--<link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.css" rel="stylesheet">-->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+    <!--<script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.js"></script>
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.css" rel="stylesheet">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.2/summernote.js"></script>-->
+
+    <link href="css/admin.css" type="text/css" rel="stylesheet" />
+</head>
+
+<body>
+    <form class='common-form' id='productsUploadForm' enctype="multipart/form-data">
+        <p>上传栏目：<select name='newsTypeSelect' id='newsTypeSelect'>
+            <option value="type01">今日聚焦</option><option value="type02">投保知识</option><option value="type03">业界动态</option>
+            <option value="type04">车驾管动态</option><option value="type05">安全常识</option> <option value="type06">政策解读</option> <option value="type07">办事指南</option>
+            <option value="type08">用车指导</option><option value="type09">车界内幕</option><option value="type10">费用解析</option>
+            <option value="type10" selected='selected'>产品服务</option>
+        </select></p>
+        <p>产品类型：<select name='productType' id='productType'>
+            <option value="type01">汽车服务</option><option value="type02">延保服务</option>
+        </select></p>
+        <p><label>产品名称：<input type="text" name='productTitle' class='input-text'/></label></p>
+        <p><label>产品图片：<input  type="file" id="fulAvatar" name="fulAvatar"/></label></p>
+        <p><label>适应人群：<input type="text" name='suiteableFor' class='input-text'/></label></p>
+        <p><label>保障期限：<input type="text" name='timeLimit' class='input-text'/></label></p>
+        <p><label>可购份数：<input type="text" name='buyAmount' class='input-text'/></label></p>
+        <div class='products-textbox'>基本信息：
+            <div class="textedit" contenteditable="true" id='basicInfo'></div>
+        </div>
+        <div class='products-textbox'>保险责任：
+            <div class="textedit" contenteditable="true" id='insurDuty'></div>
+        </div>
+        <div class='products-textbox'>责任免除：
+            <div class="textedit" contenteditable="true" id='dutyAvoid'></div>
+        </div>
+        <center><input type="submit" value='确定' id='productsSubmit' /></center>
+    </form>
+    <script>
+        //上传产品服务
+        $('#newsTypeSelect').on('change', function() {
+            if ($(this).val() != 'type10') {
+                window.location.assign('admin.html')
+            }
+        });
+        //
+        $('#productsSubmit').on('click', function(e) {
+            e.preventDefault();
+            if ($('.input-text').val() == '') {
+                alert('请输入内容');
+                return;
+            }
+
+            var formData = new FormData($('#productsUploadForm')[0]);
+            formData.append('basicInfo', $('#basicInfo').html());
+            formData.append('insurDuty', $('#insurDuty').html())
+            formData.append('dutyAvoid', $('#dutyAvoid').html())
+            $.ajax({
+                type: 'post',
+                url: '/productsUpload',
+                //上传数据为表单数据
+                data: formData,
+                contentType: false,
+                processData: false,
+                //服务器返回数据类型
+                dataType: 'html',
+                //如果服务器响应404
+                statusCode: {
+                    404: function() {
+                        alert("page not found");
+                    }
+                },
+                //上传成功，服务器响应成功
+                success: function(data) {
+                    if (data = 'success') {
+                        alert('上传成功，继续上传');
+                        $('#productsUploadForm')[0].reset()
+
+                    } else {
+                        alert('上传失败');
+                    }
+                },
+
+            });
+        });
+    </script>
+</body>
+
+</html>

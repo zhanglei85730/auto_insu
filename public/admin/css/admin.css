@@ -9,6 +9,35 @@ body,
 html {
     height: 100%
 }
-.common-form{border:1px solid #ccc;width:800px;margin:20px auto;padding:20px}
-.common-form label{font-weight:normal}
-.note-editable{min-height:500px}
+
+.common-form {
+    border: 1px solid #ccc;
+    width: 800px;
+    margin: 20px auto;
+    padding: 20px
+}
+
+.common-form label {
+    font-weight: normal
+}
+
+.note-editable {
+    min-height: 500px
+}
+
+.products-textarea {
+    vertical-align: top
+}
+
+.products-textbox .textedit {
+    width: 650px;
+    min-height: 100px;
+    vertical-align: top;
+    border: 1px solid #ccc;
+    margin-top: 10px;
+    display: inline-block
+}
+
+.common-form .input-text {
+    width: 450px
+}

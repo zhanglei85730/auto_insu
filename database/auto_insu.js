@@ -32,9 +32,12 @@
  });
 
  var productSchema = mongoose.Schema({
+     product_type: String,
+     product_title: String,
      product_pic: String,
-     time_limit: Number,
-     buy_amount: Number,
+     suitable_for: String,
+     time_limit: String,
+     buy_amount: String,
      basic_info: String,
      duty_duty: String,
      duty_avoid: String,
