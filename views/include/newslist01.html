@@ -1,9 +1,37 @@
-<% if(newsAssortment.length!=0){ %>
+<!--<% if(newsAssortment.length!=0){ %>
     <% newsAssortment.forEach(function(newsObj){ %>
         <% //将ISODate日期格式转换为本地日期格式%>
             <% var localDate = new Date(newsObj.create_time.getTime()).toLocaleString();
-                                            var reg = localDate.slice(5,-8);                                            
-                                         %>
+                    console.log(new Date(newsObj.create_time.getTime()))  
+                    // 2017-06-06T07:09:32.692Z
+
+                    //2017-06-06T07:03:51.091Z
+                    //2017-06-06 15:03:51
+                    //                 
+                    var reg = localDate.slice(5,-8);                                            
+              %>
+                <li>
+                    <a href="newsDetail?id=<%=newsObj.create_time.getTime() %>">
+                        <%= newsObj.news_title %>
+                    </a><span class="list_date_a"><%= reg %></span >
+       </li>
+     <% }) %>
+ <% } %>-->
+
+<% if(newsAssortment.length!=0){ %>
+    <% newsAssortment.forEach(function(newsObj){ %>
+        <% //将ISODate日期格式转换为本地日期格式%>
+            <% var date = new Date(newsObj.create_time.getTime()); 
+                    //月份并加1
+                    var month = ('0'+(date.getMonth()+1)).slice(-2);
+                    //日期
+                    var day = ('0'+date.getDate()).slice(-2);
+                    //时
+                    var hours = ('0'+date.getHours()).slice(-2);
+                    //分
+                    var muintes =('0'+date.getMinutes()).slice(-2);                              
+                   var reg =month+'-'+day                                           
+              %>
                 <li>
                     <a href="newsDetail?id=<%=newsObj.create_time.getTime() %>">
                         <%= newsObj.news_title %>

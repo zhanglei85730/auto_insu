@@ -32,9 +32,20 @@
                             <div class="car_bd_bottom">
                                 <ul class="car_list_a">
                                     <% newsAssortment.forEach(function(obj){ %>
-                                        <% var localDate = new Date(obj.create_time.getTime()).toLocaleString();
+                                        <!--<% var localDate = new Date(obj.create_time.getTime()).toLocaleString();
                                             var reg = localDate.slice(5,-8);                                            
-                                         %>
+                                         %>-->
+                                        <% var date = new Date(obj.create_time.getTime()); 
+                                                //月份并加1
+                                                var month = ('0'+(date.getMonth()+1)).slice(-2);
+                                                //日期
+                                                var day = ('0'+date.getDate()).slice(-2);
+                                                //时
+                                                var hours = ('0'+date.getHours()).slice(-2);
+                                                //分
+                                                var muintes =('0'+date.getMinutes()).slice(-2);                              
+                                                var reg =month+'-'+day                                           
+                                            %>
                                             <li>
                                                 <a href="newsDetail?id=<%=obj.create_time.getTime() %>">
                                                     <%=obj.news_title%>

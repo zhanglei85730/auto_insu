@@ -45,23 +45,21 @@
             <div class="clearfix subPageMain car_newsMain">
                 <div class="l_w730 car_article">
                     <div class="article_content">
-                        <!--<div class="article_hd">
-                            <h2 class="article_title">【渔一社区服务中心】十月活动，精彩预告</h2>
-                            <p class="article_info"><span>发布时间：</span><span class="mr20">2014-10-15</span><span>发布者：</span><span class="mr20">渔一社区</span><span>信息来源：</span><span>原创</span></p>
-                        </div>
-                        <div class="article_bd">
-                            <p><strong>（通讯员：麦倩梅）</strong>在白石洲西社区里有这样一群老人——他们不是常年居住在这里，而是随着季节气候变化往返于深圳和老家，我们把这样一群老人称为“候鸟式老人”。趁着老年朋友过完“暑假”返深之际，9月17日，白石洲西社区服务中心开展了“齐聚社区，共话服务”中老年茶话会活动。</p>
-                            <p>在祥和的气氛中，中老年朋友一起回顾着自中心设立以来开展的各项老年服务活动。大家兴趣盎然地观看视频并被记录的精彩画面勾起了往昔美好的回忆，不时发出阵阵欢笑声——拉近了彼此间的距离，结交了好朋友，更收获了好心情和好经验。对于今后的服务活动，大家也分享了各自的想法，一位阿姨倡议：“希望一起外出游玩；把自己身边的朋友介绍到服务中心，扩大社交圈子；大伙儿对交谊舞活动也感兴趣。”</p>
-                            <p>（通讯员：麦倩梅）在白石洲西社区里有这样一群老人——他们不是常年居住在这里，而是随着季节气候变化往返于深圳和老家，我们把这样一群老人称为“候鸟式老人”。趁着老年朋友过完“暑假”返深之际，9月17日，白石洲西社区服务中心开展了“齐聚社区，共话服务”中老年茶话会活动。</p>
-                            <p>在祥和的气氛中，中老年朋友一起回顾着自中心设立以来开展的各项老年服务活动。大家兴趣盎然地观看视频并被记录的精彩画面勾起了往昔美好的回忆，不时发出阵阵欢笑声——拉近了彼此间的距离，结交了好朋友，更收获了好心情和好经验。对于今后的服务活动，大家也分享了各自的想法，一位阿姨倡议：“希望一起外出游玩；把自己身边的朋友介绍到服务中心，扩大社交圈子；大伙儿对交谊舞活动也感兴趣。”</p>
-                        </div>-->
                         <div class="article_hd">
                             <h2 class="article_title">
                                 <%= newsEntry.news_title %>
                                     <% //将ISODate日期格式转换为本地日期格式%>
-                                        <% var localDate = new Date(newsEntry.create_time.getTime()).toLocaleString();
-                                            var reg = localDate.slice(5,-3);                                            
-                                %>
+                                        <% var date = new Date(newsEntry.create_time.getTime()); 
+                                                //月份并加1
+                                                var month = ('0'+(date.getMonth()+1)).slice(-2);
+                                                //日期
+                                                var day = ('0'+date.getDate()).slice(-2);
+                                                //时
+                                                var hours = ('0'+date.getHours()).slice(-2);
+                                                //分
+                                                var muintes =('0'+date.getMinutes()).slice(-2);                              
+                                            var reg =month+'-'+day+' '+hours+':'+muintes                                     
+                                          %>
                             </h2>
                             <p class="article_info"><span>发布时间：</span><span class="mr20"><%= reg %></span></p>
                         </div>

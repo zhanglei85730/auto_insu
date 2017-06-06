@@ -10,8 +10,8 @@ var http = require('http');
 
 
 router.post('/', function(req, res, next) {
-
-    // var timestmp = new Date().getTime();
+    console.log('test上传数据有没有过来')
+        // var timestmp = new Date().getTime();
     var uploadFile = '/upload/';
 
     uploadPic(req, res, uploadFile, function(formField, filename) {

@@ -27,7 +27,6 @@ function uploadPic(req, res, path, cb) {
             files.push(file);
         })
         .on('end', function() {
-            console.log(files)
             for (var i = 0; i < files.length; i++) {
                 var strpath = files[i].path;
                 //取出文件扩展名
@@ -37,7 +36,6 @@ function uploadPic(req, res, path, cb) {
                     extNameArr.push(extname);
                     if (RegExp.$1 == '.jpg' || RegExp.$1 == '.gif' || RegExp.$1 == '.png') {
                         newFileName = new Date().getTime() + RegExp.$1;
-                        console.log(newFileName);
                         var timestmp = new Date().getTime();
                         fs.renameSync(strpath, form.uploadDir + newFileName); //重命名
                     };
@@ -45,8 +43,8 @@ function uploadPic(req, res, path, cb) {
             };
             //判断上传文件不为空
             if (extNameArr.length > 0) {
-                console.log('有上传文件')
-                    //返回表单位字段及文件名
+                //console.log('有上传文件')
+                //返回表单位字段及文件名
                 cb(formField, newFileName)
             } else {
                 cb(formField, '')
