@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('include/header.html') %>
+        <%=title%>
+</head>
+
+<body>
+    <ul>
+        <% users.forEach(function(item){ %>
+            <li>
+                <%=item.name %>
+            </li>
+            <% }%>
+    </ul>
+</body>
+
+</html>

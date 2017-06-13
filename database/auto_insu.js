@@ -11,7 +11,20 @@
  db.once('open', function() {
      console.log('连接数据库成功')
  });
- //建立集合（数据表）数据结构
+ //建立集合（数据表）数据结构  
+ //users集合
+ var userSchema = mongoose.Schema({
+     name: String,
+     user_pw: String,
+     age: Number,
+     sexual: String,
+     id: Number
+ });
+ //counter表
+ var countersSchema = mongoose.Schema({
+     id: String,
+     sequence_value: Number
+ });
  //news集合
  var newSchema = mongoose.Schema({
      news_type: String,
@@ -55,3 +68,5 @@
  });
  module.exports.news = mongoose.model('New', newSchema);
  module.exports.products = mongoose.model('Product', productSchema);
+ module.exports.user = mongoose.model('User', userSchema);
+ module.exports.counter = mongoose.model('Counter', countersSchema);

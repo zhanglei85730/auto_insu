@@ -1572,3 +1572,11 @@ a.DMV_img_link:hover {
 .paginnation a.current:visited {
     color: #ff0000
 }
+
+.common-form {
+    width: 400px;
+    height: 400px;
+    margin: 20px auto;
+    border: 1px solid #ccc;
+    padding: 20px
+}

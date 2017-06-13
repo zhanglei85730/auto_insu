@@ -9,13 +9,7 @@
 <body>
 
     <div class="sz_topNav">
-        <div class="clearfix sz_topNav_content">
-            <a href="#" class="jyw_login">登录1</a>
-            <a href="#" class="jyw_register">注册</a>
-            <a href="#" class="jyw_homePage">设为首页</a>
-            <a href="#" class="jyw_addFavorites">加入收藏</a>
-            <a href="#" class="jyw_backHome">返回首页</a>
-        </div>
+        <%- include('include/tophead.html') %>
     </div>
     <!--END sz_topNav-->
 
@@ -100,7 +94,7 @@
                 <div class="r_w240">
                     <div class="insure_knowledge">
                         <% //投保知识 %>
-                            <%- include('include/newslist03.html',{newsAssortment:newsList.tbzs,title:'投保知识',type:'tbzs'}) %>
+                            <%- include('include/newsList03.html',{newsAssortment:newsList.tbzs,title:'投保知识',type:'tbzs'}) %>
                     </div>
                     <div class="query_traffic_violations">
                         <a href="#" title="交通违章查询"><img src="img/query_traffic_violations.jpg" alt="交通违章查询" /></a>

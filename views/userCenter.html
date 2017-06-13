@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('include/header.html') %>
+        <%=title%>
+</head>
+
+<body>
+    <p>
+
+
+        <% if(user.name=='admin'){%>
+            欢迎您管理员：
+            <%= user.name%>
+                <a href="/admin">管理</a>
+
+
+                <% } else{ %>
+
+                    一般用户：
+                    <%= user.name%>
+                        <a href="/admin">管理</a>
+                        <% } %>
+
+    </p>
+    <%- include('include/logout.html',{"user":user}) %>
+</body>
+
+</html>
