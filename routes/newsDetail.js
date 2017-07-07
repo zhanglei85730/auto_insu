@@ -15,7 +15,7 @@ router.get('/', function(req, res, next) {
         return findNews('type08', ['news_title', 'create_time'], 11);
     }).then(function(docs) {
         newsObj.yczd = docs;
-        res.render('newsDetail', { title: '这是新闻详情页', newsEntry: newsEntry, newsList: newsObj });
+        res.render('newsDetail', { title: '这是新闻详情页', newsEntry: newsEntry, newsList: newsObj, user: req.session.user });
     });
 });
 module.exports = router;

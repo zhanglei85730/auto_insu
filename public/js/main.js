@@ -39,5 +39,19 @@ $(function() {
             itemNode = 0;
     };
     $('#nav li').eq(itemNode).addClass('current').siblings('li').removeClass('current');
-
+    //验证登录页面
+    $('#loginSumbit').on('click', function() {
+        if ($('#username').val() == '') {
+            alert('用户名不能为空')
+            return false
+        } else if ($('#userpw').val() == '') {
+            alert('密码不能为空')
+            return false
+        } else if ($('#validateCode').val() == '' || $('#validateCode').val().length < 5 || $('#validateCode').val().length > 5) {
+            alert('验证码不能为空或填写错误' + $('#validateCode').val().length)
+            return false
+        } else {
+            $(this).submit();
+        }
+    })
 })

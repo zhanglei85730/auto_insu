@@ -2,14 +2,14 @@ var express = require('express');
 var router = express.Router();
 const News = require('../database/auto_insu.js').news;
 
-router.get('/', (erq, res, next) => {
+router.get('/', (req, res, next) => {
     let newsObj = {};
     findNews('type01', ['news_title', 'create_time'], 12).then(function(docs) {
         newsObj.focus = docs;
         return findNews('type03', ['news_title', 'create_time'], 12)
     }).then(function(docs) {
         newsObj.yjdt = docs;
-        res.render('news', { title: '新闻资讯', newsList: newsObj });
+        res.render('news', { title: '新闻资讯', newsList: newsObj, user: req.session.user });
     });
 
 });

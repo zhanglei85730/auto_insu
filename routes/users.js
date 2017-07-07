@@ -79,6 +79,7 @@ router.post('/', function(req, res, next) {
                         //查询所有用户
                         User.find({}, function(err, docs) {
                             if (err) return console.error(err);
+                            console.log('wowo' + docs)
                             res.render("users", { title: '查找并显示所有用户', users: docs })
                         });
                     });

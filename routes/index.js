@@ -1,10 +1,11 @@
 var express = require('express');
 var router = express.Router();
 const News = require('../database/auto_insu.js').news;
-
+// var demofs = require("./demofs.js").ss
 /* GET home page. */
 router.get('/', function(req, res, next) {
     console.time('查询时间')
+        // console.log(demofs)
     let newsObj = {};
     findNews('type01', ['news_title', 'create_time'], 9).then(function(docs) {
         newsObj.focus = docs;
@@ -37,7 +38,7 @@ router.get('/', function(req, res, next) {
         return findNews('type10', ['news_title', 'create_time', 'news_pic', 'news_content'], 10);
     }).then(function(docs) {
         newsObj.fyjx = docs;
-        res.render('index', { title: '首页', newsList: newsObj });
+        res.render('index', { title: '首页', newsList: newsObj, user: req.session.user });
         console.timeEnd('查询时间')
     })
 

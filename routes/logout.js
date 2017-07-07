@@ -4,8 +4,7 @@ var router = express.Router();
 var session = require("express-session")
 router.all('/', function(req, res, next) {
     req.session.user = null;
-    res.send("您已经注销账户，从新<a href='login.html'>登录</a>")
-    console.log(req.session.user)
+    res.send("您已经注销账户，从新<a href='login'>登录</a>,<a href='/'>回到首页</a>,")
 })
 
 module.exports = router;

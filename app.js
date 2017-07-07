@@ -19,6 +19,7 @@ var products = require('./routes/products'); //导入产品服务模块
 var productsDetail = require('./routes/productsDetail'); //导入产品服务详情模块
 var usersCenter = require('./routes/usersCenter'); //导入用户模块
 var login = require('./routes/login'); //导入用户模块
+var loginValidate = require('./routes/loginValidate'); //导入用户模块
 
 var admin = require('./routes/admin'); //导入用户模块
 var productsPage = require('./routes/productsPage'); //导入用户模块
@@ -38,7 +39,8 @@ app.engine(".html", require("ejs").__express);
 //设置session
 app.use(session({
     secret: 'recommand 128 bytes random string', // 建议使用 128 个字符的随机字符串
-    cookie: { maxAge: 60 * 1000 }
+    //设置cookie过期时间
+    cookie: { maxAge: 60 * 1000 * 30 }
 }));
 
 
@@ -61,17 +63,20 @@ app.use('/guide', guide);
 app.use('/products', products);
 app.use('/productsDetail', productsDetail);
 app.use('/login', login);
+app.use('/loginValidate', loginValidate);
 //登录用户可以跳转到/usersCenter，用户中心
 app.use(function(req, res, next) {
-    console.log('req.session.user:' + req.session.user)
+    console.log('req.cookie:' + req.cookie)
+    console.log('req.session.userbbb:' + req.session.user)
     if (!req.session.user) {
         res.send('小样儿，你没有权限访问该页面，不要再访问了')
     } else {
         next();
     }
 });
-app.use('/logout', logout);
 app.use('/usersCenter', usersCenter);
+app.use('/logout', logout);
+
 //如果是admin用户，可以跳转到/admin、/productsPage，可以上传新闻及产品
 app.use(function(req, res, next) {
     if (req.session.user.name == 'admin') {

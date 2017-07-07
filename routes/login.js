@@ -1,45 +1,92 @@
 var express = require('express');
-var crypto = require("crypto");
 var router = express.Router();
-var User = require('../database/auto_insu.js').user; // 导入user数据模块;
 var sesssion = require("express-session");
+// var identCodeData = require("../module/validate");
+var BMP24 = require('gd-BMP/BMP24'); //gd-bmp
+var fs = require("fs")
 
-router.post('/', function(req, res, next) {
-    //用户名密码不为空
-    var param = req.body;
-    if (req.body.username != '' && req.body.userpw != '') {
-        //对输入密码进行加密
+/**
+ * 生成验证码
+ */
 
-        var md5 = crypto.createHash('md5');
-        var userpw = md5.update(req.body.userpw).digest('base64');
+//仿PHP的rand函数
+function rand(min, max) {
+    return Math.random() * (max - min + 1) + min | 0; //特殊的技巧，|0可以强制转换为整数
+}
+//抽取数组中的一个数据
+function getOneOfArray(arr) {
+    var arrIndex = parseInt(Math.random() * arr.length);
+    return arr[arrIndex]
+};
+//定义随机颜色
+var colorArr = new Array(0xff3333, 0xcc00cc, 0x0000cc, 0x339900, 0xff6600, 0x333333, 0x660066, 0x666633);
+//制造验证码图片
+function makeCapcha() {
+    var validateWidth = 90;
+    var validateHeight = 34;
+    // var img = new BMP24(100, 40);
+    var img = new BMP24(validateWidth, validateHeight);
 
-        User.findOne({ name: param.username }, function(err, docs) {
-            // console.log('userpw=' + docs.user_pw)
-            if (err) return console.error(err);
-            //判断用户是否存在
-            if (docs) {
-                console.log(docs)
-                    //用户输入密码与已保存密码对比
-                var pw = docs.user_pw;
-                console.log('pw=' + pw);
-                // console.log('userpw=' + userpw);
-                if (pw == userpw) {
-                    req.session.user = docs;
-                    res.redirect('/usersCenter');
-                } else {
-                    //跳转到导航树页面                    
-                    res.send("密码错误，回到<a href='login.html'>登录页面</a>");
-                };
-                //用记名不存在
-            } else {
-                res.send("用户名不存在，请先<a href='register.html'>注册</a>")
-            }
-        })
+    //边框
+    //img.drawRect(0, 0, img.w - 1, img.h - 1, rand(0, 0xbff0d8));    
+    //画实心矩形
+    img.fillRect(0, 0, img.w, img.h, 0xa9ecda)
+    img.drawCircle(rand(0, validateWidth), rand(0, validateHeight), rand(10, validateHeight), rand(0, 0xffffff));
+    // img.fillRect(rand(0, 100), rand(0, 40), rand(10, 35), rand(10, 35), rand(0, 0xffffff));
+    img.drawLine(rand(0, validateWidth), rand(0, validateHeight), rand(0, validateWidth), rand(0, validateHeight), rand(0, 0xffffff));
+    //return img;
 
-        //用户名或密码为空
-    } else {
-        res.send("用户名或密码错误，回到<a href='login.html'>登录页面</a>'")
+    //画曲线
+    var w = img.w / 2;
+    var h = img.h;
+    var color = rand(0, 0xffffff);
+    var y1 = rand(-5, 5); //Y轴位置调整
+    var w2 = rand(10, 15); //数值越小频率越高
+    var h3 = rand(4, 6); //数值越小幅度越大
+    var bl = rand(1, 5);
+    for (var i = -w; i < w; i += 0.1) {
+        var y = Math.floor(h / h3 * Math.sin(i / w2) + h / 2 + y1);
+        var x = Math.floor(i + w);
+        for (var j = 0; j < bl; j++) {
+            img.drawPoint(x, y + j, color);
+        }
     }
-})
+
+    var p = "ABCDEFGHKMNPQRSTUVWXYZ3456789";
+    //str这生成的验证 用于前台验证使用
+    var str = '';
+    for (var i = 0; i < 5; i++) {
+        str += p.charAt(Math.random() * p.length | 0);
+    }
+    // var fonts = [BMP24.font8x16, BMP24.font12x24, BMP24.font16x32];
+    //设置字体大小
+    var fonts = [BMP24.font8x16, BMP24.font12x24];
+    var x = 4,
+        y = 8;
+    for (var i = 0; i < str.length; i++) {
+        var f = fonts[Math.random() * fonts.length | 0];
+        y = 8 + rand(-5, 5);
+        //img.drawChar(str[i], x, y, f, rand(0, 0xffffff));
+        img.drawChar(str[i], x, y, f, getOneOfArray(colorArr));
+
+        x += f.w + rand(2, 6);
+    }
+
+    return { 'img': img, 'str': str };
+}
+//http get请求
+router.get('/', (req, res, next) => {
+    //将验证码写入session    
+    //获取验证码数据
+    var validate = makeCapcha();
+    var img = validate.img;
+    //验证码写入session
+    req.session.validateStr = validate.str;
+    console.log('req.session.validateStr=' + req.session.validateStr)
+    var identData = img.getFileData();
+    //验证码数据转base64
+    var identDataToBase64 = identData.toString('base64');
+    res.render('login', { 'title': '登录', ident: identDataToBase64 })
+});
 
 module.exports = router;

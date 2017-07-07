@@ -77,7 +77,7 @@ router.get('/', function(req, res, next) {
             return findNews('type08', ['news_title', 'create_time'], 11);
         }).then(function(docs) {
             newsObj.yczd = docs;
-            res.render('newsMore', { title: '新闻更多', newsList: newsList, newsRightList: newsObj, newsTypeName: newsTypeName, pathAndQuery: pathAndQuery, pagination: page })
+            res.render('newsMore', { title: '新闻更多', newsList: newsList, newsRightList: newsObj, newsTypeName: newsTypeName, pathAndQuery: pathAndQuery, pagination: page, user: req.session.user })
         });
     });
 

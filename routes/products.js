@@ -3,7 +3,7 @@ var router = express.Router();
 const Products = require('../database/auto_insu.js').products;
 const News = require('../database/auto_insu.js').news;
 
-router.get('/', (erq, res, next) => {
+router.get('/', (req, res, next) => {
     let productsObj = {},
         newsObj = {};
     Products.find({ product_type: 'type01' }).then(function(docs) {
@@ -17,7 +17,7 @@ router.get('/', (erq, res, next) => {
         return findNews('type08', ['news_title', 'create_time'], 11);
     }).then(function(docs) {
         newsObj.yczd = docs;
-        res.render('products', { title: '产品服务', newsList: newsObj, productsList: productsObj })
+        res.render('products', { title: '产品服务', newsList: newsObj, productsList: productsObj, user: req.session.user })
     });
 });
 
