@@ -9,7 +9,7 @@
  //测试是否连接成功
  db.on('error', console.error.bind(console, 'connection error:'));
  db.once('open', function() {
-     console.log('连接数据库成功')
+     //  console.log('连接数据库成功')
  });
  //建立集合（数据表）数据结构  
  //users集合

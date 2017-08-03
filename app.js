@@ -5,12 +5,14 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
-
+// var RedisStore = require('connect-redis')(session);
 var index = require('./routes/index');
 var users = require('./routes/users');
 var newsUpload = require('./routes/newsUpload');
 var productsUpload = require('./routes/productsUpload');
 var newsDetail = require('./routes/newsDetail');
+//redis
+var redis = require('./routes/redis');
 
 var newsMore = require('./routes/newsMore'); //新闻更多
 var news = require('./routes/news'); //测试上传数据
@@ -19,11 +21,12 @@ var products = require('./routes/products'); //导入产品服务模块
 var productsDetail = require('./routes/productsDetail'); //导入产品服务详情模块
 var usersCenter = require('./routes/usersCenter'); //导入用户模块
 var login = require('./routes/login'); //导入用户模块
-var loginValidate = require('./routes/loginValidate'); //导入用户模块
+var loginValidate = require('./routes/loginValidate'); //导入登录验证
+var validateImg = require('./routes/validateImg'); //导入用户模块
 
-var admin = require('./routes/admin'); //导入用户模块
-var productsPage = require('./routes/productsPage'); //导入用户模块
-var logout = require('./routes/logout'); //导入用户模块
+var admin = require('./routes/admin'); //导入管理员
+var productsPage = require('./routes/productsPage'); //导入产品页
+var logout = require('./routes/logout'); //导入登出
 
 
 
@@ -64,6 +67,10 @@ app.use('/products', products);
 app.use('/productsDetail', productsDetail);
 app.use('/login', login);
 app.use('/loginValidate', loginValidate);
+app.use('/ValidateImg', validateImg);
+app.use('/redis', redis);
+
+app.use('/users', users);
 //登录用户可以跳转到/usersCenter，用户中心
 app.use(function(req, res, next) {
     console.log('req.cookie:' + req.cookie)
@@ -75,7 +82,7 @@ app.use(function(req, res, next) {
     }
 });
 app.use('/usersCenter', usersCenter);
-app.use('/logout', logout);
+
 
 //如果是admin用户，可以跳转到/admin、/productsPage，可以上传新闻及产品
 app.use(function(req, res, next) {

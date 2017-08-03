@@ -3,8 +3,9 @@ var router = express.Router();
 var sesssion = require("express-session");
 // var identCodeData = require("../module/validate");
 var BMP24 = require('gd-bmp'); //gd-bmp
-var fs = require("fs");
-
+var fs = require("fs")
+var url = require("url");
+var qs = require('querystring');
 
 /**
  * 生成验证码
@@ -82,12 +83,17 @@ router.get('/', (req, res, next) => {
     }
     var validate = makeCapcha();
     var img = validate.img;
-    //验证码写入全局
+    //覆盖\login加载时写入的全局global.validateStr
     global.validateStr = validate.str;
     var identData = img.getFileData();
     //验证码数据转base64
     var identDataToBase64 = identData.toString('base64');
-    res.render('login', { 'title': '登录', ident: identDataToBase64 })
+    res.set('Content-Type', 'text/plain');
+    //设置跨域
+    res.set('Access-Control-Allow-Origin', '*');
+    res.set('Access-Control-Allow-Methods', 'get');
+    res.send(identDataToBase64);
+    res.end();
 });
 
 module.exports = router;

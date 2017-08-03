@@ -2,17 +2,20 @@ var express = require('express');
 var crypto = require("crypto");
 var router = express.Router();
 var User = require('../database/auto_insu.js').user; // 导入user数据模块;
+
 var sesssion = require("express-session");
 
 router.post('/', function(req, res, next) {
-    //用户名密码不为空
-
+    console.log('登录验证开始.................')
+        //用户名密码不为空
+    console.log('最后session=' + req.session.validateStr)
     var param = req.body;
     if (req.body.username != '' && req.body.userpw != '' && req.body.validateCode != '') {
         //验证验证码是否正确
         var validate = req.session.validateStr;
-        console.log('wwwwwwwwreq.session.validateStr=' + req.session.validateStr)
-        if (param.validateCode.toUpperCase() != validate) {
+        var validateRefresh = req.session.validateRefresh
+        console.log('global.validateStr=' + global.validateStr)
+        if (param.validateCode.toUpperCase() != global.validateStr) {
             res.send("验证码错误，回到<a href='login'>登录页面</a>");
             return;
         }
@@ -33,6 +36,8 @@ router.post('/', function(req, res, next) {
                     console.log('ddd')
                     req.session.user = docs;
                     // res.redirect('/usersCenter');
+                    //删除全局验证码
+                    global.validateStr = null
                     res.redirect('/');
                     // res.send('success')
                 } else {

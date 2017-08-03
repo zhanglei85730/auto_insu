@@ -18,12 +18,28 @@
             <br/>
             <p><label>请输入密码：<input type="password" name='userpw' id='userpw'/></label></p>
             <br/>
-            <p><label>输入用户名：<input type="text" style='width:80px' name='validateCode' id='validateCode'> <img src="data:image/bmp;base64,<%- ident%>"></p>
+            <p><label>输入用户名：<input type="text" style='width:80px' name='validateCode' id='validateCode'> <img src="data:image/bmp;base64,<%- ident%>"  id='validateImg'></p>
             <center><input type="submit" value='登录' id='loginSumbit'/></center>
-
         </form>
     </body>
-
+<script type="text/javascript">
+    $('#validateImg').on('click',function(){
+        var $obj = $(this)     
+        $.ajax({
+            method:'get',
+            url:'http://192.168.0.95:3000/validateImg',
+            dataType:'text',
+            success:function(data,status,xhr){               
+                if(status=='success'){
+                    $obj.attr('src',"data:image/bmp;base64,"+data)
+                }
+            },
+            error:function(){
+                console.log('ajax出错了')
+            }
+        })
+    })
+</script>
 
 
 </html>
