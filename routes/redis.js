@@ -16,30 +16,30 @@ redis.on('error', function(err) {
 // };
 
 
-redis.on('ready', function(err) {
-    //console.log('ddddddddddddddd')
-})
+// redis.on('ready', function(err) {
+//     //console.log('ddddddddddddddd')
+// })
 
-redis.hmset('articl', { name: "zhanglei", age: "32", set: "mail" });
-redis.expire("articl", 3);
-flag = false
+// redis.hmset('articl', { name: "zhanglei", age: "32", set: "mail" });
+// redis.expire("articl", 3);
+// flag = false
 
-var ss;
-redis.hgetall('articl', function(err, obj) {
-    ss = obj;
-})
+// var ss;
+// redis.hgetall('articl', function(err, obj) {
+//     ss = obj;
+// })
 
 
-router.get('/', (req, res, next) => {
+// router.get('/', (req, res, next) => {
 
-    res.send(ss)
+//     res.send(ss)
 
-})
+// })
 
-setTimeout(() => {
-    redis.hgetall('articl', function(err, obj) {
-        console.log('看看值:' + obj)
-    })
-}, 8000)
+// setTimeout(() => {
+//     redis.hgetall('articl', function(err, obj) {
+//         console.log('看看值:' + obj)
+//     })
+// }, 8000)
 
 module.exports = router;

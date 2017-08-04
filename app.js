@@ -12,7 +12,7 @@ var newsUpload = require('./routes/newsUpload');
 var productsUpload = require('./routes/productsUpload');
 var newsDetail = require('./routes/newsDetail');
 //redis
-var redis = require('./routes/redis');
+// var redis = require('./routes/redis');
 
 var newsMore = require('./routes/newsMore'); //新闻更多
 var news = require('./routes/news'); //测试上传数据
@@ -68,7 +68,7 @@ app.use('/productsDetail', productsDetail);
 app.use('/login', login);
 app.use('/loginValidate', loginValidate);
 app.use('/ValidateImg', validateImg);
-app.use('/redis', redis);
+// app.use('/redis', redis);
 
 app.use('/users', users);
 //登录用户可以跳转到/usersCenter，用户中心

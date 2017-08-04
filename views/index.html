@@ -1,15 +1,15 @@
-<!DOCTYPE html>
-<html lang="zh">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-    <%- include('include/header.html') %>
-        <title>首页</title>
-
-
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>车险服务</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <script src="js/jquery-1.4.2.min.js"></script>
+    <script src="js/main.js"></script>
 </head>
 
 <body>
-
     <div class="sz_topNav">
         <%- include('include/tophead.html') %>
     </div>
@@ -25,8 +25,13 @@
             </div>
         </div>
         <div class="car_insurance_nav">
-            <% //头部模板 %>
-                <%- include('include/nav.html') %>
+            <ul class="clearfix car_insurance_navList">
+                <li class="car_insurance_nav_home"><a href="#" class="current">首页</a></li>
+                <li><a href="#">新闻资讯</a></li>
+                <li><a href="#">用车指南</a></li>
+                <li><a href="#">产品服务</a></li>
+                <li><a href="#">招商加盟</a></li>
+            </ul>
         </div>
     </div>
     <!--END sz_header-->
@@ -70,40 +75,82 @@
                         </div>
                     </div>
                     <!-- END car_slide -->
-
-                    <div class="industry_news">
-                        <%//业界动态%>
-                            <%- include('include/newsList02.html',{newsAssortment:newsList.yjdt,title:'业界<em>动态</em>',type:'yjdt'}) %>
+                    <div class="industry_news" id="industryNews">
+                        <!--<div class="car_hd_a">
+                            <h2>业界<em>动态</em></h2>
+                            <a href="#" class="more_a">More+</a>
+                        </div>
+                        <div class="clearfix car_bd_top">
+                            <div class="bd_top_img"><img src="img/bd_top_img01.jpg" alt="业界动态" /></div>
+                            <div class="bd_top_news">
+                                <h3><a href="#" title="几年前，奇瑞还处于“多生孩子打群架”">几年前，奇瑞还处于“多生孩子打群架”</a></h3>
+                                <p>几年前，奇瑞还处于“多生孩子打群架”的策略之下，旗下的子品牌可谓不胜枚举。在经历了战略的失败后</p>
+                            </div>
+                        </div>
+                        <div class="car_bd_bottom">
+                            <ul class="car_list_a">
+                                <li><a href="#" title="沪港通今日启动">沪港通今日启动 将为上海带来数万亿美元新资金</a><span class="list_date_a">11-07</span></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a><span class="list_date_a">11-07</span></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a><span class="list_date_a">11-07</span></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a><span class="list_date_a">11-07</span></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a><span class="list_date_a">11-07</span></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a><span class="list_date_a">11-07</span></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a><span class="list_date_a">11-07</span></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a><span class="list_date_a">11-07</span></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a><span class="list_date_a">11-07</span></li>
+                            </ul>
+                        </div>-->
                     </div>
                 </div>
                 <div class="l_w370">
                     <div class="focus_today">
-                        <div class="clearfix hd"><a class="more_a" href="newsMore?newsType=focus">More+</a></div>
+                        <div class="clearfix hd"><a class="more_a" href="#">More+</a></div>
                         <div class="bd">
-                            <ul class="car_list_a">
-                                <%//新闻聚焦%>
-                                    <%- include('include/newsList01.html',{newsAssortment:newsList.focus,title:'新闻聚焦',type:'focus'}) %>
-
+                            <!--	<ul class="car_list_a">
+							<li><a href="#" title="沪港通今日启动">沪港通今日启动 将为上海带来数万亿美元新资金</a><span class="list_date_a">11-07</span></li>
+							<li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a><span class="list_date_a">11-07</span></li>
+							<li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金资金</a><span class="list_date_a">11-07</span></li>
+							<li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a><span class="list_date_a">11-07</span></li>
+							<li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a><span class="list_date_a">11-07</span></li>
+							<li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a><span class="list_date_a">11-07</span></li>
+							<li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a><span class="list_date_a">11-07</span></li>
+							<li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a><span class="list_date_a">11-07</span></li>
+							<li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a><span class="list_date_a">11-07</span></li>
+						</ul>-->
+                            <ul id="focusToday" class='car_list_a'>
                             </ul>
                         </div>
                     </div>
-                    <div class="cjg_news">
-                        <% //车驾管动态%>
-                            <%- include('include/newsList02.html',{newsAssortment:newsList.cjgdt,title:'车驾管<em>动态</em>',type:'cjgdt'}) %>
+                    <div class="cjg_news" id='cjgNews'>
+                        {{cjgNews}}
                     </div>
-
                 </div>
                 <div class="r_w240">
-                    <div class="insure_knowledge">
-                        <% //投保知识 %>
-                            <%- include('include/newsList03.html',{newsAssortment:newsList.tbzs,title:'投保知识',type:'tbzs'}) %>
+                    <div class="insure_knowledge" id="insureKnowledge">
+                        <!--<div class="car_hd_b">
+                            <a class="more_a" href="#">More+</a>
+                            <h2>投保知识</h2>
+                        </div>
+                        <div class="bd">
+                            <ul class="car_list_a">
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万</a></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a></li>
+                                <li><a href="#" title="">沪港通今日启动 将为上海带来数万亿美元新资金</a></li>
+                            </ul>
+                        </div>-->
                     </div>
                     <div class="query_traffic_violations">
                         <a href="#" title="交通违章查询"><img src="img/query_traffic_violations.jpg" alt="交通违章查询" /></a>
                     </div>
-                    <div class="safety_common_sense">
-                        <% //安全常识 %>
-                            <%- include('include/newsList03.html',{newsAssortment:newsList.aqcs,title:'安全常识',type:'aqcs'}) %>
+                    <div class="safety_common_sense" id='safetyCommonSense'>
+                        <!--安全知识-->
+                        {{safetyCommonSense}}
                     </div>
                 </div>
             </div>
@@ -133,30 +180,28 @@
             <!-- END car_second_floor -->
             <div class="clearfix car_thirdly_floor">
                 <div class="l_w340">
-                    <div class="policy_elucidation">
-                        <%//政策解读%>
-                            <%- include('include/newsList02.html',{newsAssortment:newsList.zcjd,title:'政策<em>解读</em>',type:'zcjd'}) %>
+                    <div class="policy_elucidation" id='policyElucidation'>
+                        <!--政策解读-->
+                        {{policyElucidation}}
                     </div>
-                    <div class="motor_dom">
-                        <%//车界内幕%>
-                            <%- include('include/newsList02.html',{newsAssortment:newsList.cjnm,title:'车界<em>内幕</em>',type:'cjnm'}) %>
+                    <div class="motor_dom" id="motorDom">
+                        <!--车界内幕-->
+                        {{motorDom}}
                     </div>
                 </div>
                 <div class="l_w370">
-                    <div class="law_guide">
-                        <%//办事指南%>
-                            <%- include('include/newsList02.html',{newsAssortment:newsList.bszn,title:'办事<em>指南</em>',type:'bszn'}) %>
+                    <div class="law_guide" id='lawGuide'>
+                        <!--办事指南-->
+                        {{lawGuide}}
                     </div>
-                    <div class="cost_analysis">
-                        <%//费用解析%>
-                            <%- include('include/newsList02.html',{newsAssortment:newsList.fyjx,title:'费用<em>解析</em>',type:'fyjx'}) %>
+                    <div class="cost_analysis" id="costAnalysis">
+                        <!--费用解析-->
+                        {{costAnalysis}}
                     </div>
                 </div>
                 <div class="r_w240">
-                    <div class="use_the_vehicle_guide">
-
-                        <% //用车指导 %>
-                            <%- include('include/newsList03.html',{newsAssortment:newsList.yczd,title:'用车指导',type:'yczd'}) %>
+                    <div class="use_the_vehicle_guide" id="useTheVehicleGuide">
+                        {{useTheVehicleGuide}}
                     </div>
                     <div class="car_img_links">
                         <a href="#" title="机动车业务"><img src="img/img_links01.jpg" alt="机动车业务" /></a>
@@ -171,17 +216,11 @@
                 </div>
             </div>
         </div>
-        <%# 输出数据 %>
+        <!--END content-->
 
-            <!--END content-->
-            <% //尾部模板 %>
-                <%- include('include/footer.html') %>
-                    <!--END footer-->
+        <% //尾部模板 %>
+            <%- include('include/footer.html') %>
+                <!--END footer-->
 
     </div>
     <!--END mainBody-->
-
-
-</body>
-
-</html>
